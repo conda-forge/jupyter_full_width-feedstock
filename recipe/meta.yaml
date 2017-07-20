@@ -1,5 +1,5 @@
 {% set name = "jupyter_full_width" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 82bb5ec40652b7b482e8432e77707cfa05502711ed78ce6ea506fc93d52dd523
+  sha256: 9227f315962ce49713f6a9a5f58ca1985ccc666f2f77dc9429fe600b4ad0afd2
 
 build:
-  number: 1
+  number: 0
   script:
     - python setup.py install --single-version-externally-managed --record record.txt
-    - jupyter nbextension install ipython_unittest --py --sys-prefix --overwrite
+    - jupyter nbextension install full_width --py --sys-prefix --overwrite
 
 requirements:
   build:
