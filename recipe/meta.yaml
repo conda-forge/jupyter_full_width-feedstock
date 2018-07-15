@@ -10,13 +10,15 @@ source:
   sha256: 9227f315962ce49713f6a9a5f58ca1985ccc666f2f77dc9429fe600b4ad0afd2
 
 build:
-  number: 0
+  noarch: python
+  number: 1
   script:
     - python setup.py install --single-version-externally-managed --record record.txt
     - jupyter nbextension install full_width --py --sys-prefix --overwrite
 
 requirements:
-  build:
+  host:
+    - pip
     - python
     - setuptools
     - notebook >=4.0
