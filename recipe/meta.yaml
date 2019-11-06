@@ -19,12 +19,9 @@ requirements:
     - python
     - pip
     - notebook >=4.0
-    - jupyter
-
   run:
     - python
     - notebook >=4.0
-    - jupyter
 
 test:
   imports:
