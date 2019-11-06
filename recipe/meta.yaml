@@ -1,31 +1,27 @@
-{% set name = "jupyter_full_width" %}
 {% set version = "1.2.0" %}
 
 package:
-  name: {{ name }}
+  name: jupyter_full_width
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/j/jupyter_full_width/jupyter_full_width-{{ version }}.tar.gz
   sha256: 9227f315962ce49713f6a9a5f58ca1985ccc666f2f77dc9429fe600b4ad0afd2
 
 build:
-  number: 1000
+  number: 1001
   script:
-    - python setup.py install --single-version-externally-managed --record record.txt
+    - "{{ PYTHON }} -m pip install . --no-deps -vv"
     - jupyter nbextension install full_width --py --sys-prefix --overwrite
 
 requirements:
   build:
     - python
-    - setuptools
+    - pip
     - notebook >=4.0
-    - jupyter
-
   run:
     - python
     - notebook >=4.0
-    - jupyter
 
 test:
   imports:
@@ -34,6 +30,7 @@ test:
 about:
   home: https://github.com/JoaoFelipe/JupyterFullWidth
   license: MIT
+  license_file: LICENSE
   summary: 'Add a button to allow jupyter to use the full browser width'
   license_family: MIT
 
