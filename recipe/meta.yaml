@@ -15,7 +15,7 @@ build:
     - jupyter nbextension install full_width --py --sys-prefix --overwrite
 
 requirements:
-  build:
+  host:
     - python
     - pip
     - notebook >=4.0
