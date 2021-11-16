@@ -9,13 +9,13 @@ source:
   sha256: 9227f315962ce49713f6a9a5f58ca1985ccc666f2f77dc9429fe600b4ad0afd2
 
 build:
-  number: 1003
+  number: 1004
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
     - jupyter nbextension install full_width --py --sys-prefix --overwrite
 
 requirements:
-  build:
+  host:
     - python
     - pip
     - notebook >=4.0
