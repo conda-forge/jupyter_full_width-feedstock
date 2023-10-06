@@ -18,10 +18,10 @@ requirements:
   host:
     - python
     - pip
-    - notebook >=4.0
+    - notebook >=4.0,<7
   run:
     - python
-    - notebook >=4.0
+    - notebook >=4.0,<7
 
 test:
   imports:
