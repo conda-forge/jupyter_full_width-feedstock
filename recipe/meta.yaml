@@ -10,20 +10,23 @@ source:
 
 build:
   number: 1007
+  noarch: python
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
     - jupyter nbextension install full_width --py --sys-prefix --overwrite
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - notebook >=4.0,<7
   run:
-    - python
+    - python >={{ python_min }}
     - notebook >=4.0,<7
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - full_width
 
