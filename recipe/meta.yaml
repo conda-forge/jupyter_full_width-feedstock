@@ -5,25 +5,28 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/j/jupyter_full_width/jupyter_full_width-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/j/jupyter_full_width/jupyter_full_width-{{ version }}.tar.gz
   sha256: 9227f315962ce49713f6a9a5f58ca1985ccc666f2f77dc9429fe600b4ad0afd2
 
 build:
-  number: 1006
+  number: 1007
+  noarch: python
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
     - jupyter nbextension install full_width --py --sys-prefix --overwrite
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - notebook >=4.0,<7
   run:
-    - python
+    - python >={{ python_min }}
     - notebook >=4.0,<7
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - full_width
 
